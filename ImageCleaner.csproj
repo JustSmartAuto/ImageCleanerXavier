@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>ImageCleaner</AssemblyName>
+    <RootNamespace>ImageCleaner</RootNamespace>
+    <Product>ImageCleaner</Product>
+    <AssemblyTitle>ImageCleaner</AssemblyTitle>
+    <Description>工控环境图片清理工具</Description>
+    <Version>1.0.0</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <StartupObject>ImageCleaner.Program</StartupObject>
+    <ApplicationIcon>assets\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AntdUI" Version="2.4.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ImageCleaner.Launcher/**/*.cs" />
+    <EmbeddedResource Remove="ImageCleaner.Launcher/**/*.*" />
+    <None Remove="ImageCleaner.Launcher/**/*.*" />
+    <Content Remove="ImageCleaner.Launcher/**/*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="assets\cleaner.png">
+      <LogicalName>cleaner.png</LogicalName>
+    </EmbeddedResource>
+    <Content Include="delete_conditions.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
